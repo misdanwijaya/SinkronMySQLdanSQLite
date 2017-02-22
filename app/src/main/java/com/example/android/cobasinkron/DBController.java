@@ -39,7 +39,7 @@ public class DBController  extends SQLiteOpenHelper {
 		ContentValues values = new ContentValues();
 		values.put("transaksiId", queryValues.get("transaksiId"));
 		values.put("transaksiName", queryValues.get("transaksiName"));
-		database.insert("transaksi", null, values);
+		database.insertWithOnConflict("transaksi", null, values,SQLiteDatabase.CONFLICT_REPLACE);
 		database.close();
 	}
 	
