@@ -18,7 +18,7 @@ public class DBController  extends SQLiteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase database) {
 		String query;
-		query = "CREATE TABLE transaksi ( transaksiId INTEGER, transaksiName TEXT)";
+		query = "CREATE TABLE transaksi ( transaksiId INTEGER, transaksiName TEXT, UNIQUE(transaksiId, transaksiName) ON CONFLICT REPLACE)";
         database.execSQL(query);
 	}
 	@Override
